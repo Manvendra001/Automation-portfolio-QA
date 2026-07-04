@@ -1,2 +1,2 @@
 # Automation-portfolio-QA
-This repositories contains Automation multiple projects under CRIO.DO
+This repository contains multiple automation projects under CRIO.DO
