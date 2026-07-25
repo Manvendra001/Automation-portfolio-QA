@@ -1,9 +1,15 @@
-exports.config = {
+import env from "./wdio.env.js";
+const envObj = new env();
+const params = envObj.getParams();
+
+export const config = {
+    // Whenever we run the run command npm run wdio then it will look for the object of config
     //
     // ====================
     // Runner Configuration
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
+    // There are other runners like browserstack and selenium grid
     runner: 'local',
     //
     // ==================
@@ -19,7 +25,7 @@ exports.config = {
     //
     // The path of the spec files will be resolved relative from the directory of
     // of the config file unless it's absolute.
-    //
+    // The spec file is very important file it tells us to go inside the folder and exexute the javascript file 
     specs: [
         './test/specs/**/*.js'
     ],
@@ -50,7 +56,8 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
+        // browserName: 'chrome',
+        capabilities: params.capabilities,
     }],
 
     //
@@ -85,6 +92,7 @@ exports.config = {
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
     // baseUrl: 'http://localhost:8080',
+    baseUrl: params.base_url,
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

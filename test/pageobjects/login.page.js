@@ -1,41 +1,42 @@
-const { $ } = require('@wdio/globals')
-const Page = require('./page');
+import { $ } from '@wdio/globals'
+import Page from './page.js'    
+import Page from '../vaah-webdriverio/Page.js'
+import Selector from '../vaah-webdriverio/Selector.js'
+import VaahAsserts from "../vaah-webdriverio/VaahAsserts.js";
+
+let Asserts = new VaahAsserts();
+let Sl = new Selector();
+
 
 /**
  * sub page containing specific selectors and methods for a specific page
  */
 class LoginPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    get inputUsername () {
-        return $('#username');
+    constructor() {
+        super();
+        this.params.page.id = "RG";
+        this.params.page.name = "Registration";
+        this.params.page.path = "/register";
+        this.params.page.url = this.base_url+this.params.page.path;
     }
 
-    get inputPassword () {
-        return $('#password');
+    async open() {
+        await browser.maximizeWindow();
+        await Asserts.pause();
+        await super.open(this.params.page.url);
     }
 
-    get btnSubmit () {
-        return $('button[type="submit"]');
+    async firstNameFieldTypeFunctionality(data, assert){
+        await Sl.id(data.element.first_name_id).setValue(data.value.first_name);
+        await expect(Sl.id(data.element.first_name_id)).toHaveValueContaining(assert);
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-    async login (username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
-    }
-
-    /**
-     * overwrite specific options to adapt it to page object
-     */
-    open () {
-        return super.open('login');
+    async lastNameFieldTypeFunctionality(data, assert){
+        const last_name = await Sl.id(data.element.last_name_id);
+        await last_name.setValue(data.value.last_name);
+        await expect(last_name).toHaveValueContaining(assert);
     }
 }
 
-module.exports = new LoginPage();
+
+export default new LoginPage();
