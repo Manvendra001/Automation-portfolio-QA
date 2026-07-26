@@ -1,10 +1,6 @@
 import Env from "../../wdio.env.js";
 
-// const envObj = new Env();
-
-// const params = envObj.getParams();
-
-class asserts1 {
+class asserts {
 
     async pause(seconds = null) {
         if (seconds === null) {
@@ -29,4 +25,4 @@ class asserts1 {
     }
 }
 
-export default new asserts1();
+export default new asserts();

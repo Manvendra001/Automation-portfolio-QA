@@ -1,7 +1,7 @@
 import { $ } from '@wdio/globals'
 import Page from './page.js'
-import Selector from 
-import Asserts from 
+import Selector from '../Wdio-helpers/Selector.js'  
+import Asserts from '../Wdio-helpers/Asserts.js'
 
 let Asserts = new VaahAsserts();
 let Sl = new Selector();
@@ -13,9 +13,9 @@ let Sl = new Selector();
 class LoginPage extends Page {
     constructor() {
         super();
-        this.params.page.id = "RG";
-        this.params.page.name = "Registration";
-        this.params.page.path = "/register";
+        this.params.page.id = "LG";
+        this.params.page.name = "Login";
+        this.params.page.path = "/login";
         this.params.page.url = this.base_url+this.params.page.path;
     }
 
