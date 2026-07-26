@@ -3,6 +3,7 @@ const envObj = new env();
 const params = envObj.getParams();
 
 export const config = {
+    env: params,
     // Whenever we run the run command npm run wdio then it will look for the object of config
     //
     // ====================
@@ -55,10 +56,9 @@ export const config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        // browserName: 'chrome',
+    
         capabilities: params.capabilities,
-    }],
+    
 
     //
     // ===================

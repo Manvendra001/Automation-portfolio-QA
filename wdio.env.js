@@ -6,7 +6,7 @@ class Env {
             is_human_pause: 1000,
             env: null,
             log_level: 'error',
-            base_url: '',
+            base_url: 'https://www.facebook.com/',
             version: null,
             capabilities: [
             ]

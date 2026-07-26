@@ -1,8 +1,7 @@
 import { $ } from '@wdio/globals'
-import Page from './page.js'    
-import Page from '../vaah-webdriverio/Page.js'
-import Selector from '../vaah-webdriverio/Selector.js'
-import VaahAsserts from "../vaah-webdriverio/VaahAsserts.js";
+import Page from './page.js'
+import Selector from 
+import Asserts from 
 
 let Asserts = new VaahAsserts();
 let Sl = new Selector();

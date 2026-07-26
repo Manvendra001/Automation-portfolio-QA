@@ -1,6 +1,6 @@
 import Page from '../vaah-webdriverio/Page.js'
 
-export default class Registration extends Page{
+export default class Login extends Page{
     constructor() {
         super();
         this.params = {
@@ -50,14 +50,10 @@ export default class Registration extends Page{
                     {
                         count: 1.2,
                         name: "Verify the title of the registration page",
-                        expect: "The title should be: Toolstation",
-                        assert: "Toolstation"
+                        expect: "The title should be: Faceboook",
+                        assert: "Faceboook"
                     },
-                    {
-                        count: 1.3,
-                        name: "Verify if the heading is visible on the registration page or not",
-                        expect: "The heading should be visible on the registration page",
-                    }
+                    
                 ]
             }
         ]
